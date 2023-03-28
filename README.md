@@ -7,7 +7,7 @@ We implement in `C++` the construction given in the paper.
 ```g++ -O2 main.cpp -o main```
 
 # Usage
-You shall configure the dimension (`N`) at the top of the main.cpp file.
+You shall configure the dimension (`N`) at the top of the function_representations.hpp file.
 
 Then, in the `main()` you shall describe the operator you want to consider.
 The example currently implemented is for the operator (in dimension `N=3`, with the three variables `x_0`, `x_1`, `x_2`)
@@ -22,8 +22,9 @@ Then, executing `./main` will print the first few homogenous terms of the expans
 
 An operator is a `function<AE(AE)>` taking an `AsymptoticExpansion=AE` and giving back an `AsymptoticExpansion=AE`.
 It must be elliptic and its principal symbol must be the same of the Laplacian. See the example in `main.cpp`.
+The field of coefficient is denoted by `F`.
 
 The coefficients defining the operator shall be instances of the class `Polynomial`. 
-The construction of a polynomial is a bit involved. A polynomial is a vector of pairs `{exponents, coefficient}`. 
-The exponents are a vector of length `N` (where `N` is the dimension), and the i-th entry represent the exponent of `x_i`.
+A polynomial is a vector of pairs `{exponent, coefficient}`. 
+The exponent is a vector of length `N` (where `N` is the dimension), and the i-th entry represent the exponent of `x_i`.
 For example, the polynomial ![](https://latex.codecogs.com/svg.image?1&space;&plus;&space;4x_0^2) is constructed by `{{{0, 0, 0}, F(1)}, {{2, 0, 0}, F(4)}}`.

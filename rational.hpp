@@ -1,3 +1,5 @@
+#pragma once
+
 /* Implementation of the rational number for a generic ring. */
 
 #include <map>
@@ -14,9 +16,9 @@ template <typename Integer>
 struct Rational {
 	Integer num;
 	Integer den;
-	Rational<Integer>(): num(0), den(1) {}
-	Rational<Integer>(Integer n): num(n), den(1) {}
-	Rational<Integer>(Integer n, Integer d): num(n), den(d) { normalize(); }
+	Rational(): num(0), den(1) {}
+	Rational(Integer n): num(n), den(1) {}
+	Rational(Integer n, Integer d): num(n), den(d) { normalize(); }
 
 	void normalize() {
 		assert(den != 0);
